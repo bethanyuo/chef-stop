@@ -6,6 +6,7 @@ import Wallet from './routes/Wallet';
 import Cookbook from './routes/Cookbook';
 import Recipe from './routes/Recipe';
 import Navbar from './routes/Navbar';
+import Footer from './routes/Footer';
 import {
   BrowserRouter,
   Route,
@@ -24,6 +25,7 @@ ReactDOM.render(
       <Route exact path='/cookbook' render={props => <Cookbook {...props} />} />
       <Route exact path='/recipes' render={props => <Recipe {...props} />} />
     </Switch>
+    <Footer />
   </BrowserRouter>
   ,
   document.getElementById( 'root' )
