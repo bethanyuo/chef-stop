@@ -13,6 +13,10 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
+import Avatar from '@material-ui/core/Avatar';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Divider from '@material-ui/core/Divider';
+import G from 'glob';
 //import Link from '@material-ui/core/Link';
 
 // function Copyright() {
@@ -68,15 +72,26 @@ const useStyles = makeStyles( ( theme ) => ( {
     },
     button: {
         marginLeft: theme.spacing( 1 ),
-       // paddingRight: theme.spacing( 1 ),
+        // paddingRight: theme.spacing( 1 ),
         // width: '25ch',
     },
     gridPadding: {
-        margin: theme.spacing( 3, 0, 0),
+        margin: theme.spacing( 3, 0, 0 ),
         paddingLeft: theme.spacing( 1 ),
         // width: '25ch',
     },
-    
+    avatar: {
+        margin: theme.spacing( 1 ),
+        backgroundColor: theme.palette.secondary.main,
+    },
+    signIn: {
+        paddingBottom: theme.spacing( 2 ),
+    },
+    divider: {
+        height: 28,
+        margin: 4,
+      },
+
 } ) );
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -89,6 +104,18 @@ export default function Cookbook () {
             <CssBaseline />
             <main>
                 {/* Hero unit */}
+                <Grid>
+                <div>
+                    <Avatar className={classes.avatar}>
+                        <LockOutlinedIcon />
+                    </Avatar>
+                    <Typography className={classes.signIn} component="h1" variant="h5">
+                        Username
+        </Typography>
+                </div>
+                </Grid>
+                <Divider className={classes.divider} orientation="vertical" />
+                <Grid>
                 <div className={classes.heroContent}>
                     <Container maxWidth="xs">
                         {/* <Typography component="h3" variant="h4" align="center"  gutterBottom>
@@ -123,7 +150,7 @@ export default function Cookbook () {
                                     fullWidth
                                     variant="contained"
                                     color="primary"
-                                    // className={classes.submit}
+                                // className={classes.submit}
                                 >
                                     Update
           </Button>
@@ -142,6 +169,7 @@ export default function Cookbook () {
                         </Grid>
                     </Container>
                 </div>
+                </Grid>
                 <Container className={classes.cardGrid} maxWidth="lg">
                     {/* End hero unit */}
                     <Grid container spacing={4}>
