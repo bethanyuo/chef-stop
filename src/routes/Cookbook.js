@@ -16,27 +16,13 @@ import TextField from '@material-ui/core/TextField';
 import Avatar from '@material-ui/core/Avatar';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Divider from '@material-ui/core/Divider';
-import G from 'glob';
 //import Link from '@material-ui/core/Link';
 
-// function Copyright() {
-//   return (
-//     <Typography variant="body2" color="textSecondary" align="center">
-//       {'Copyright © '}
-//       <Link color="inherit" href="https://material-ui.com/">
-//         Your Website
-//       </Link>{' '}
-//       {new Date().getFullYear()}
-//       {'.'}
-//     </Typography>
-//   );
 
 const useStyles = makeStyles( ( theme ) => ( {
     heroContent: {
-        backgroundColor: theme.palette.action.active,
+        backgroundColor: theme.palette.background.paper,
         padding: theme.spacing( 10 ),
-        //marginLeft: theme.spacing(0),
-        color: theme.palette.primary.contrastText,
         alignItems: 'center',
     },
     heroButtons: {
@@ -72,16 +58,16 @@ const useStyles = makeStyles( ( theme ) => ( {
     },
     button: {
         marginLeft: theme.spacing( 1 ),
-        // paddingRight: theme.spacing( 1 ),
-        // width: '25ch',
     },
     gridPadding: {
         margin: theme.spacing( 3, 0, 0 ),
         paddingLeft: theme.spacing( 1 ),
-        // width: '25ch',
     },
     avatar: {
         margin: theme.spacing( 1 ),
+        width: theme.spacing( 11 ),
+        height: theme.spacing( 11 ),
+        marginBottom: theme.spacing( 5 ),
         backgroundColor: theme.palette.secondary.main,
     },
     signIn: {
@@ -90,8 +76,21 @@ const useStyles = makeStyles( ( theme ) => ( {
     divider: {
         height: 28,
         margin: 4,
-      },
+    },
+    gridRoot: {
+        maxWidth: '100%',
+        borderBottom: `1px solid ${ theme.palette.divider }`,
+        // borderRadius: theme.shape.borderRadius,
+        backgroundColor: theme.palette.background.paper,
+        color: theme.palette.text.secondary,
 
+    },
+
+    username: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center'
+    }
 } ) );
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -104,71 +103,73 @@ export default function Cookbook () {
             <CssBaseline />
             <main>
                 {/* Hero unit */}
-                <Grid>
-                <div>
-                    <Avatar className={classes.avatar}>
-                        <LockOutlinedIcon />
-                    </Avatar>
-                    <Typography className={classes.signIn} component="h1" variant="h5">
-                        Username
+                {/* <div> */}
+                <Grid container alignItems="center" className={classes.gridRoot}>
+
+                    <Container maxWidth="xs" item xs='6'>
+                        <Grid className={classes.username}>
+                            {/* <div> */}
+                            <Avatar className={classes.avatar}>
+                                <LockOutlinedIcon />
+                            </Avatar>
+                            <Typography className={classes.signIn} component="h1" variant="h5">
+                                Username
         </Typography>
-                </div>
-                </Grid>
-                <Divider className={classes.divider} orientation="vertical" />
-                <Grid>
-                <div className={classes.heroContent}>
-                    <Container maxWidth="xs">
-                        {/* <Typography component="h3" variant="h4" align="center"  gutterBottom>
-              Explore
-            </Typography> */}
-                        <TextField
-                            id="standard-full-width"
-                            label="Username"
-                            style={{ margin: 8 }}
-                            defaultValue="Placeholder"
-                            fullWidth
-                            margin="normal"
-                            InputLabelProps={{
-                                shrink: true,
-                            }}
-                        />
-                        <TextField
-                            id="standard-full-width"
-                            label="Email"
-                            style={{ margin: 8 }}
-                            defaultValue="Placeholder"
-                            fullWidth
-                            margin="normal"
-                            InputLabelProps={{
-                                shrink: true,
-                            }}
-                        />
-                        <Grid container className={classes.gridPadding}>
-                            <Grid item xs>
-                                <Button
-                                    type="submit"
-                                    fullWidth
-                                    variant="contained"
-                                    color="primary"
-                                // className={classes.submit}
-                                >
-                                    Update
-          </Button>
-                            </Grid>
-                            <Grid item xs>
-                                <Button
-                                    type="submit"
-                                    fullWidth
-                                    variant="contained"
-                                    color="primary"
-                                    className={classes.button}
-                                >
-                                    Logout
-          </Button>
-                            </Grid>
+                            {/* </div> */}
                         </Grid>
                     </Container>
-                </div>
+                    <Divider orientation="vertical" flexItem />
+                    <Grid className={classes.heroContent} item xs='6'>
+                        {/* <div> */}
+                        <Container maxWidth="xs">
+                            <TextField
+                                id="standard-full-width"
+                                label="Username"
+                                style={{ margin: 8 }}
+                                defaultValue="Placeholder"
+                                fullWidth
+                                margin="normal"
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                            />
+                            <TextField
+                                id="standard-full-width"
+                                label="Email"
+                                style={{ margin: 8 }}
+                                defaultValue="Placeholder"
+                                fullWidth
+                                margin="normal"
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                            />
+                            <Grid container className={classes.gridPadding}>
+                                <Grid item xs>
+                                    <Button
+                                        type="submit"
+                                        fullWidth
+                                        variant="contained"
+                                        color="primary"
+                                    >
+                                        Update
+          </Button>
+                                </Grid>
+                                <Grid item xs>
+                                    <Button
+                                        type="submit"
+                                        fullWidth
+                                        variant="contained"
+                                        color="primary"
+                                        className={classes.button}
+                                    >
+                                        Logout
+          </Button>
+                                </Grid>
+                            </Grid>
+                        </Container>
+                        {/* </div> */}
+                    </Grid>
                 </Grid>
                 <Container className={classes.cardGrid} maxWidth="lg">
                     {/* End hero unit */}
