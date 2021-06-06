@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -7,7 +7,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-
+import Grid from '@material-ui/core/Grid';
 // function Copyright () {
 //   return (
 //     <Typography variant="body2" color="textSecondary" align="center">
@@ -37,7 +37,7 @@ const useStyles = makeStyles( ( theme ) => ( {
     backgroundColor: theme.palette.secondary.main,
   },
   signIn: {
-    paddingBottom: theme.spacing( 2),
+    paddingBottom: theme.spacing( 2 ),
   },
   form: {
     width: '37%', // Fix IE 11 issue.
@@ -45,12 +45,16 @@ const useStyles = makeStyles( ( theme ) => ( {
     color: theme.palette.primary.contrastText
   },
   submit: {
-    margin: theme.spacing( 3, 0, 10),
+    margin: theme.spacing( 3, 0, 10 ),
   }
 } ) );
 
 export default function SignIn () {
   const classes = useStyles();
+  const [username, setUsername] = useState( "" );
+  const [email, setEmail] = useState( "" );
+  const [selectedFile, setSelectedFile] = useState( null );
+
 
   return (
     <Container className={classes.container} component="main" maxWidth="lg">
@@ -71,8 +75,10 @@ export default function SignIn () {
             id="username"
             label="Username"
             name="username"
+            value={username}
             autoComplete="username"
             autoFocus
+            onChange={( e ) => setUsername( e.target.value )}
           />
           <TextField
             variant="outlined"
@@ -83,12 +89,25 @@ export default function SignIn () {
             label="Email Address"
             name="email"
             autoComplete="email"
+            value={email}
             autoFocus
+            onChange={( e ) => setEmail( e.target.value )}
           />
-          {/* <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          /> */}
+          <Grid container spacing={2} 
+            direction="row"
+            justify="flex-start"
+            alignItems="flex-end">
+            <Grid item>
+              <Typography component="h6" color='textPrimary'>
+                Select Avatar:
+              </Typography>
+            </Grid>
+            <Grid item >
+              <label >
+                <input type="file" value={selectedFile} onChange={( e ) => setSelectedFile( e.target.files[0] )} />
+              </label>
+            </Grid>
+          </Grid>
           <Button
             type="submit"
             fullWidth
