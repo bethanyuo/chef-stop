@@ -4,7 +4,7 @@ import './index.css';
 import App from './routes/App';
 import Wallet from './routes/Wallet';
 import Cookbook from './routes/Cookbook';
-import Recipe from './routes/Recipe';
+import Recipe from './routes/recipes/Recipe';
 import Navbar from './routes/Navbar';
 import Footer from './routes/Footer';
 import {
@@ -23,7 +23,7 @@ ReactDOM.render(
       <Route exact path='/' render={props => <App {...props} />} />
       <Route exact path='/wallet' render={props => <Wallet {...props} />} />
       <Route exact path='/cookbook' render={props => <Cookbook {...props} />} />
-      <Route exact path='/recipes' render={props => <Recipe {...props} />} />
+      <Route exact path='/recipe' render={props => <Recipe {...props} />} />
     </Switch>
     <Footer />
   </BrowserRouter>
