@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './routes/App';
 import Wallet from './routes/Wallet';
+import Create from './routes/Create';
 import Cookbook from './routes/Cookbook';
 import Recipe from './routes/recipes/Recipe';
 import Navbar from './routes/Navbar';
@@ -23,7 +24,7 @@ ReactDOM.render(
       <Route exact path='/' render={props => <App {...props} />} />
       <Route exact path='/wallet' render={props => <Wallet {...props} />} />
       <Route exact path='/cookbook' render={props => <Cookbook {...props} />} />
-      <Route exact path='/recipe' render={props => <Recipe {...props} />} />
+      <Route exact path='/create' render={props => <Create {...props} />} />
     </Switch>
     <Footer />
   </BrowserRouter>
